@@ -1,4 +1,5 @@
 from email import message
+from email.policy import default
 from django.db import models
 
 # Create your models here.
@@ -6,6 +7,10 @@ from django.db import models
 class Post(models.Model):
 
     message = models.TextField()
+
+    photo = models.ImageField(blank = True)
+
+    is_public = models.BooleanField(default=False, verbose_name='공개여부')
 
     created_at = models.DateTimeField(auto_now_add=True)
 
